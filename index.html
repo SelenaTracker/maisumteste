@@ -181,6 +181,22 @@
       border-radius: 50%;
     }
 
+    <!-- Carregar dados dinâmicos -->
+<script>
+  // URL do data.json (ajuste conforme seu GitHub Pages)
+  const DATA_URL = 'data/data.json';
+  
+  // Dados padrão (fallback caso JSON não carregue)
+  const DEFAULT_DATA = {
+    ultima_atualizacao: new Date().toLocaleString('pt-BR'),
+    total_streams: 8245321,
+    total_musicas: 45,
+    musicas: [
+      // Seus dados atuais aqui (posso ajudar a converter depois)
+    ]
+  };
+</script>
+    
     /* Área do usuário */
     .menu-usuario {
       display: flex;
