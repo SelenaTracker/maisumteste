@@ -1,0 +1,25 @@
+{
+  "last_update": "2026-01-12 20:00:00 -03:00",
+  "total_streams": 2337951345,
+  "total_songs": 2,
+  "songs": [
+    {
+      "name": "Lose You To Love Me",
+      "artist": "Selena Gomez",
+      "total": 1431693759,
+      "daily": 265912,
+      "goal": 1440000000,
+      "era": "solo",
+      "position": 1
+    },
+    {
+      "name": "Good For You",
+      "artist": "Selena Gomez ft. A$AP Rocky",
+      "total": 906257586,
+      "daily": 283182,
+      "goal": 910000000,
+      "era": "solo", 
+      "position": 2
+    }
+  ]
+}
