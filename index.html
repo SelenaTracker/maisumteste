@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acompanhe as metas de streams da Selena Gomez em 2026. Sistema completo com estatísticas, votações, rankings e calculadora de streams.">
+  <meta name="keywords" content="Selena Gomez, streams, música, metas, votações, rankings, calculadora">
+  <meta name="author" content="Gomez Streams Diários">
+  <meta property="og:title" content="Gomez Streams Diários - 2026">
+  <meta property="og:description" content="Sistema completo para acompanhar as metas de streams da Selena Gomez">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <title>Gomez Streams Diários - 2026</title>
+  <style>
+    /* Variáveis CSS para consistência e facilidade de manutenção */
+    :root {
+      --roxo-principal: #8A2BE2;
+      --roxo-escuro: #6A1BBE;
+      --roxo-claro: #A855F7;
+      --roxo-suave: #E9D5FF;
+      --rosa: #EC4899;
+      --azul: #3B82F6;
+      --verde: #10B981;
+      --amarelo: #F59E0B;
+      --vermelho: #EF4444;
+      --cinza-escuro: #1F2937;
+      --cinza-medio: #6B7280;
+      --cinza-claro: #F3F4F6;
+      --cinza-borda: #E5E7EB;
+      --branco: #FFFFFF;
+      --preto: #000000;
+      --fonte-principal: 'Poppins', sans-serif;
+      --fonte-titulos: 'Fredoka One', cursive;
+      --espaco-xs: 0.5rem;
+      --espaco-sm: 1rem;
+      --espaco-md: 1.5rem;
+      --espaco-lg: 2rem;
+      --espaco-xl: 3rem;
+      --borda-radius: 12px;
+      --borda-radius-sm: 8px;
+      --sombra: 0 4px 12px rgba(138, 43, 226, 0.15);
+      --sombra-forte: 0 10px 25px rgba(138, 43, 226, 0.25);
+      --sombra-suave: 0 2px 5px rgba(0, 0, 0, 0.05);
+      --transicao-rapida: 0.2s ease;
+      --transicao-normal: 0.3s ease;
+    }
+
+    /* Reset e estilos globais otimizados */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--fonte-principal);
+      color: var(--cinza-escuro);
+      background-color: var(--cinza-claro);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Utilitários */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--espaco-md);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Cabeçalho melhorado */
+    .cabecalho {
+      background-color: var(--branco);
+      box-shadow: var(--sombra);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all var(--transicao-normal);
+    }
+
+    .cabecalho.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: var(--sombra-forte);
+    }
+
+    .cabecalho .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--espaco-sm) var(--espaco-md);
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-sm);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+      color: var(--roxo-principal);
+    }
+
+    .logo-texto h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.2rem;
+      font-family: var(--fonte-titulos);
+      color: var(--roxo-principal);
+    }
+
+    .subtitulo {
+      font-size: 0.85rem;
+      color: var(--cinza-medio);
+      font-weight: 400;
+    }
+
+    /* Navegação principal */
+    .menu-principal {
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-sm);
+    }
+
+    .menu-principal a {
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-xs);
+      padding: var(--espaco-xs) var(--espaco-sm);
+      border-radius: var(--borda-radius-sm);
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--cinza-escuro);
+      transition: all var(--transicao-rapida);
+      position: relative;
+    }
+
+    .menu-principal a:hover {
+      background-color: var(--roxo-suave);
+      color: var(--roxo-principal);
+    }
+
+    .menu-principal a.ativo {
+      background-color: var(--roxo-suave);
+      color: var(--roxo-principal);
+      font-weight: 600;
+    }
+
+    .menu-principal a.ativo::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 5px;
+      background-color: var(--roxo-principal);
+      border-radius: 50%;
+    }
+
+    /* Área do usuário */
+    .menu-usuario {
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-sm);
+    }
+
+    .badge-pontos {
+      background: linear-gradient(135deg, var(--roxo-principal), var(--rosa));
+      color: var(--branco);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-xs);
+      box-shadow: var(--sombra);
+    }
+
+    .badge-pontos i {
+      font-size: 0.9rem;
+    }
+
+    .avatar-usuario {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--roxo-principal), var(--rosa));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--branco);
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform var(--transicao-rapida);
+    }
+
+    .avatar-usuario:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-mobile {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--roxo-principal);
+      cursor: pointer;
+      transition: transform var(--transicao-rapida);
+      padding: var(--espaco-xs);
+    }
+
+    /* Conteúdo Principal */
+    main {
+      flex: 1;
+      padding: var(--espaco-xl) 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--roxo-principal), var(--rosa));
+      color: var(--branco);
+      padding: var(--espaco-xl) 0;
+      border-radius: var(--borda-radius);
+      margin-bottom: var(--espaco-xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: var(--espaco-md);
+      font-family: var(--fonte-titulos);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: var(--espaco-lg);
+      opacity: 0.9;
+    }
+
+    /* Cards Container */
+    .cards-container {
+      margin-bottom: var(--espaco-xl);
+    }
+
+    .titulo-secao {
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-sm);
+      margin-bottom: var(--espaco-lg);
+      padding-bottom: var(--espaco-sm);
+      border-bottom: 2px solid var(--roxo-suave);
+      font-family: var(--fonte-titulos);
+      color: var(--roxo-principal);
+    }
+
+    .titulo-secao i {
+      font-size: 1.8rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--espaco-md);
+    }
+
+    /* Card Component */
+    .card {
+      background-color: var(--branco);
+      border-radius: var(--borda-radius);
+      box-shadow: var(--sombra);
+      overflow: hidden;
+      transition: all var(--transicao-normal);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-forte);
+    }
+
+    .card-header {
+      padding: var(--espaco-md);
+      background-color: var(--roxo-suave);
+      border-bottom: 1px solid var(--cinza-borda);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-header h3 {
+      font-size: 1.3rem;
+      color: var(--roxo-principal);
+      margin: 0;
+    }
+
+    .card-body {
+      padding: var(--espaco-md);
+      flex: 1;
+    }
+
+    .valor-grande {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--roxo-principal);
+      line-height: 1;
+      margin-bottom: var(--espaco-xs);
+      font-family: var(--fonte-titulos);
+    }
+
+    .card-descricao {
+      color: var(--cinza-medio);
+      font-size: 0.95rem;
+      margin-bottom: var(--espaco-md);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--espaco-xs);
+      padding: var(--espaco-sm) var(--espaco-lg);
+      border-radius: var(--borda-radius-sm);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transicao-normal);
+      font-family: var(--fonte-principal);
+      font-size: 1rem;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
+    }
+
+    .btn:focus:not(:active)::after {
+      animation: ripple 1s ease-out;
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(40, 40);
+        opacity: 0;
+      }
+    }
+
+    .btn:focus {
+      outline: 2px solid var(--roxo-principal);
+      outline-offset: 2px;
+    }
+
+    .btn-roxo {
+      background: linear-gradient(135deg, var(--roxo-principal), var(--rosa));
+      color: var(--branco);
+    }
+
+    .btn-roxo:hover {
+      background: linear-gradient(135deg, var(--roxo-escuro), var(--rosa));
+      transform: translateY(-2px);
+      box-shadow: var(--sombra-forte);
+    }
+
+    .btn-secundario {
+      background-color: var(--cinza-claro);
+      color: var(--cinza-escuro);
+      border: 1px solid var(--cinza-borda);
+    }
+
+    .btn-secundario:hover {
+      background-color: var(--cinza-borda);
+      transform: translateY(-2px);
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      margin: var(--espaco-md) 0;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--espaco-xs);
+      font-size: 0.9rem;
+      color: var(--cinza-medio);
+    }
+
+    .progress-bar {
+      height: 10px;
+      background-color: var(--cinza-borda);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--roxo-principal), var(--rosa));
+      border-radius: 5px;
+      transition: width 1s ease-in-out;
+      width: 0;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--espaco-md);
+      margin: var(--espaco-md) 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: var(--espaco-md);
+      background-color: var(--roxo-suave);
+      border-radius: var(--borda-radius-sm);
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--roxo-principal);
+      margin-bottom: var(--espaco-xs);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--cinza-medio);
+    }
+
+    /* Table Styles */
+    .tabela-container {
+      overflow-x: auto;
+      margin: var(--espaco-md) 0;
+      border-radius: var(--borda-radius-sm);
+      border: 1px solid var(--cinza-borda);
+    }
+
+    .tabela-musicas {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    .tabela-musicas th {
+      text-align: left;
+      padding: var(--espaco-sm);
+      background-color: var(--cinza-claro);
+      color: var(--cinza-escuro);
+      font-weight: 600;
+      border-bottom: 2px solid var(--roxo-principal);
+      white-space: nowrap;
+    }
+
+    .tabela-musicas td {
+      padding: var(--espaco-sm);
+      border-bottom: 1px solid var(--cinza-borda);
+      vertical-align: middle;
+    }
+
+    .tabela-musicas tbody tr {
+      transition: background-color var(--transicao-rapida);
+    }
+
+    .tabela-musicas tbody tr:hover {
+      background-color: var(--roxo-suave);
+    }
+
+    /* Form Styles */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--espaco-md);
+      margin-bottom: var(--espaco-md);
+    }
+
+    .form-group {
+      margin-bottom: var(--espaco-md);
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: var(--espaco-xs);
+      font-weight: 500;
+      color: var(--cinza-escuro);
+      font-size: 0.95rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: var(--espaco-sm);
+      border: 2px solid var(--cinza-borda);
+      border-radius: var(--borda-radius-sm);
+      font-family: var(--fonte-principal);
+      font-size: 1rem;
+      transition: all var(--transicao-rapida);
+      background-color: var(--branco);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--roxo-principal);
+      box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
+    }
+
+    /* Calculator Section */
+    .calculadora-botoes {
+      display: flex;
+      gap: var(--espaco-md);
+      margin-bottom: var(--espaco-lg);
+      flex-wrap: wrap;
+    }
+
+    .resultado-calculadora-container {
+      margin-top: var(--espaco-lg);
+      background: linear-gradient(135deg, var(--roxo-suave), var(--branco));
+      padding: var(--espaco-lg);
+      border-radius: var(--borda-radius);
+      border: 1px solid var(--cinza-borda);
+    }
+
+    /* Alerts */
+    .alerta, .sucesso {
+      padding: var(--espaco-md);
+      border-radius: var(--borda-radius-sm);
+      text-align: center;
+      margin: var(--espaco-md) 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--espaco-sm);
+    }
+
+    .alerta {
+      background-color: #FEF3C7;
+      border: 1px solid #F59E0B;
+      color: #92400E;
+    }
+
+    .sucesso {
+      background-color: #D1FAE5;
+      border: 1px solid #10B981;
+      color: #065F46;
+    }
+
+    /* Voting Section */
+    .votacao-opcoes {
+      display: flex;
+      flex-direction: column;
+      gap: var(--espaco-md);
+      margin: var(--espaco-lg) 0;
+    }
+
+    .opcao-voto {
+      background-color: var(--branco);
+      border-radius: var(--borda-radius);
+      padding: var(--espaco-md);
+      border-left: 4px solid var(--roxo-principal);
+      transition: all var(--transicao-normal);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .opcao-voto:hover {
+      border-color: var(--roxo-principal);
+      transform: translateX(5px);
+    }
+
+    .opcao-voto.selecionada {
+      border-color: var(--roxo-principal);
+      background-color: var(--roxo-suave);
+    }
+
+    .opcao-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--espaco-sm);
+    }
+
+    .opcao-titulo {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--cinza-escuro);
+    }
+
+    .opcao-stats {
+      display: flex;
+      gap: var(--espaco-md);
+      font-size: 0.9rem;
+      color: var(--cinza-medio);
+    }
+
+    .barra-votos {
+      height: 8px;
+      background-color: var(--cinza-borda);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: var(--espaco-md);
+    }
+
+    .barra-votos-preenchida {
+      height: 100%;
+      background: linear-gradient(90deg, var(--roxo-principal), var(--rosa));
+      border-radius: 4px;
+      width: 0;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Ranking Section */
+    .ranking-filtros {
+      display: flex;
+      gap: var(--espaco-sm);
+      flex-wrap: wrap;
+      margin-bottom: var(--espaco-md);
+    }
+
+    .btn-pequeno {
+      padding: var(--espaco-xs) var(--espaco-sm);
+      font-size: 0.9rem;
+      border-radius: var(--borda-radius-sm);
+    }
+
+    .tabela-ranking {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--espaco-md) 0;
+    }
+
+    .tabela-ranking th {
+      text-align: left;
+      padding: var(--espaco-sm);
+      background-color: var(--cinza-claro);
+      color: var(--cinza-escuro);
+      border-bottom: 2px solid var(--roxo-principal);
+    }
+
+    .tabela-ranking td {
+      padding: var(--espaco-sm);
+      border-bottom: 1px solid var(--cinza-borda);
+    }
+
+    .posicao {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--cinza-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--cinza-escuro);
+      font-size: 1.1rem;
+    }
+
+    .posicao-1 {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #000;
+    }
+
+    .posicao-2 {
+      background: linear-gradient(135deg, #C0C0C0, #808080);
+      color: #000;
+    }
+
+    .posicao-3 {
+      background: linear-gradient(135deg, #CD7F32, #A0522D);
+      color: #000;
+    }
+
+    .usuario-info {
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-sm);
+    }
+
+    .usuario-foto {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--roxo-principal), var(--rosa));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--branco);
+      font-weight: bold;
+    }
+
+    .usuario-nome {
+      font-weight: 500;
+    }
+
+    .usuario-pontos {
+      font-weight: 600;
+      color: var(--roxo-principal);
+    }
+
+    .usuario-trofeus {
+      font-size: 1.2rem;
+      color: var(--amarelo);
+    }
+
+    /* Rodapé */
+    .rodape {
+      background-color: var(--cinza-escuro);
+      color: var(--branco);
+      padding: var(--espaco-xl) 0;
+      margin-top: auto;
+    }
+
+    .rodape-conteudo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--espaco-xl);
+    }
+
+    .rodape-logo {
+      margin-bottom: var(--espaco-md);
+    }
+
+    .rodape-descricao {
+      color: var(--cinza-medio);
+      margin-bottom: var(--espaco-md);
+      line-height: 1.7;
+    }
+
+    .rodape-links h4 {
+      color: var(--branco);
+      margin-bottom: var(--espaco-md);
+      font-size: 1.2rem;
+    }
+
+    .rodape-links ul {
+      list-style: none;
+    }
+
+    .rodape-links li {
+      margin-bottom: var(--espaco-sm);
+    }
+
+    .rodape-links a {
+      color: var(--cinza-medio);
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-xs);
+      text-decoration: none;
+      transition: color var(--transicao-rapida);
+    }
+
+    .rodape-links a:hover {
+      color: var(--roxo-suave);
+    }
+
+    .redes-sociais {
+      display: flex;
+      gap: var(--espaco-md);
+      margin-top: var(--espaco-md);
+    }
+
+    .redes-sociais a {
+      color: var(--cinza-medio);
+      font-size: 1.5rem;
+      transition: all var(--transicao-rapida);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .redes-sociais a:hover {
+      color: var(--roxo-suave);
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .rodape-direitos {
+      text-align: center;
+      padding-top: var(--espaco-lg);
+      margin-top: var(--espaco-lg);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--cinza-medio);
+      font-size: 0.9rem;
+    }
+
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .valor-grande {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-principal {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--branco);
+        flex-direction: column;
+        padding: var(--espaco-md);
+        box-shadow: var(--sombra-forte);
+        border-top: 1px solid var(--cinza-borda);
+        z-index: 99;
+      }
+
+      .menu-principal.mostrar {
+        display: flex;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .menu-mobile {
+        display: block;
+      }
+
+      .cabecalho .container {
+        padding: var(--espaco-sm);
+      }
+
+      .logo-texto h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero {
+        padding: var(--espaco-lg) var(--espaco-md);
+        margin-bottom: var(--espaco-lg);
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: var(--espaco-sm) var(--espaco-md);
+        width: 100%;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calculadora-botoes {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --espaco-md: 1rem;
+        --espaco-lg: 1.5rem;
+        --espaco-xl: 2rem;
+      }
+
+      .logo-area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-usuario {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--espaco-xs);
+      }
+
+      .badge-pontos {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    /* Loading State */
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .loading::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--roxo-suave);
+      border-top-color: var(--roxo-principal);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="cabecalho" id="cabecalho">
+    <div class="container">
+      <a href="#inicio" class="logo-area" aria-label="Gomez Streams Diários - Página inicial">
+        <div class="logo-icon">
+          <i class="fas fa-music"></i>
+        </div>
+        <div class="logo-texto">
+          <h1>Gomez Streams Diários</h1>
+          <span class="subtitulo">Metas de Streams 2026</span>
+        </div>
+      </a>
+
+      <button class="menu-mobile" id="menuMobile" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="menu-principal" id="menuPrincipal" aria-label="Navegação principal">
+        <a href="#inicio" class="ativo">
+          <i class="fas fa-home"></i>
+          <span>Início</span>
+        </a>
+        <a href="#estatisticas">
+          <i class="fas fa-chart-bar"></i>
+          <span>Estatísticas</span>
+        </a>
+        <a href="#votacoes">
+          <i class="fas fa-vote-yea"></i>
+          <span>Votações</span>
+        </a>
+        <a href="#ranking">
+          <i class="fas fa-trophy"></i>
+          <span>Ranking</span>
+        </a>
+        <a href="#calculadora">
+          <i class="fas fa-calculator"></i>
+          <span>Calculadora</span>
+        </a>
+      </nav>
+
+      <div class="menu-usuario">
+        <div class="badge-pontos">
+          <i class="fas fa-star"></i>
+          <span>1,245 pontos</span>
+        </div>
+        <div class="avatar-usuario" id="avatarUsuario" aria-label="Perfil do usuário" role="button" tabindex="0">
+          SG
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero animate-fade-in" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <h2>Acompanhe as Metas de Streams da Selena Gomez</h2>
+          <p>Participe da comunidade, vote nas suas músicas favoritas, acompanhe estatísticas em tempo real e suba no ranking dos maiores fãs!</p>
+          <div class="hero-botoes">
+            <a href="#estatisticas" class="btn btn-roxo">
+              <i class="fas fa-chart-line"></i>
+              Ver Estatísticas
+            </a>
+            <a href="#votacoes" class="btn btn-secundario">
+              <i class="fas fa-vote-yea"></i>
+              Participar das Votações
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards de Estatísticas -->
+    <section class="cards-container container" id="estatisticas">
+      <h2 class="titulo-secao">
+        <i class="fas fa-chart-line"></i>
+        Estatísticas em Tempo Real
+      </h2>
+      
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3>Total de Streams</h3>
+            <i class="fas fa-headphones-alt"></i>
+          </div>
+          <div class="card-body">
+            <div class="valor-grande" id="totalStreams">8,245,321</div>
+            <p class="card-descricao">Streams totais em todas as plataformas</p>
+            <div class="progress-container">
+              <div class="progress-label">
+                <span>Meta mensal</span>
+                <span>65%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 65%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Música Mais Popular</h3>
+            <i class="fas fa-fire"></i>
+          </div>
+          <div class="card-body">
+            <div class="valor-grande" id="musicaPopular">Love On</div>
+            <p class="card-descricao">2,134,567 streams esta semana</p>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value">+12.5%</div>
+                <div class="stat-label">Crescimento semanal</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">48h</div>
+                <div class="stat-label">No topo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Próxima Meta</h3>
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <div class="card-body">
+            <div class="valor-grande" id="proximaMeta">10M</div>
+            <p class="card-descricao">Streams para alcançar a próxima meta</p>
+            <div class="progress-container">
+              <div class="progress-label">
+                <span>Progresso</span>
+                <span>82%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 82%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Votações -->
+    <section class="container" id="votacoes">
+      <h2 class="titulo-secao">
+        <i class="fas fa-vote-yea"></i>
+        Votação da Semana
+      </h2>
+      
+      <div class="card">
+        <div class="card-header">
+          <h3>Qual música deve ser o próximo single?</h3>
+          <span class="texto-secundario">Votação encerra em 3 dias</span>
+        </div>
+        <div class="card-body">
+          <div class="votacao-opcoes" id="votacaoOpcoes">
+            <div class="opcao-voto" data-voto="1">
+              <div class="opcao-info">
+                <div class="opcao-titulo">My Mind & Me</div>
+                <div class="opcao-stats">
+                  <span>42%</span>
+                  <span>1,245 votos</span>
+                </div>
+              </div>
+              <div class="barra-votos">
+                <div class="barra-votos-preenchida" style="width: 42%"></div>
+              </div>
+            </div>
+
+            <div class="opcao-voto" data-voto="2">
+              <div class="opcao-info">
+                <div class="opcao-titulo">Love On</div>
+                <div class="opcao-stats">
+                  <span>35%</span>
+                  <span>1,035 votos</span>
+                </div>
+              </div>
+              <div class="barra-votos">
+                <div class="barra-votos-preenchida" style="width: 35%"></div>
+              </div>
+            </div>
+
+            <div class="opcao-voto" data-voto="3">
+              <div class="opcao-info">
+                <div class="opcao-titulo">Single Soon</div>
+                <div class="opcao-stats">
+                  <span>23%</span>
+                  <span>680 votos</span>
+                </div>
+              </div>
+              <div class="barra-votos">
+                <div class="barra-votos-preenchida" style="width: 23%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alerta">
+            <i class="fas fa-info-circle"></i>
+            <span>Você já votou nesta semana. Próxima votação em 2 dias.</span>
+          </div>
+
+          <div class="resumo-votacao">
+            <h4>Total de votos: <strong>2,960</strong></h4>
+            <p>Participe da próxima votação para escolher a próxima música a ser promovida!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ranking -->
+    <section class="container" id="ranking">
+      <h2 class="titulo-secao">
+        <i class="fas fa-trophy"></i>
+        Ranking dos Fãs
+      </h2>
+      
+      <div class="card">
+        <div class="card-body">
+          <div class="ranking-filtros">
+            <button class="btn btn-pequeno btn-roxo ativo" data-filtro="geral">Geral</button>
+            <button class="btn btn-pequeno btn-secundario" data-filtro="semanal">Esta Semana</button>
+            <button class="btn btn-pequeno btn-secundario" data-filtro="mensal">Este Mês</button>
+          </div>
+
+          <div class="tabela-container">
+            <table class="tabela-ranking">
+              <thead>
+                <tr>
+                  <th>Posição</th>
+                  <th>Fã</th>
+                  <th>Pontos</th>
+                  <th>Streams</th>
+                  <th>Troféus</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaRanking">
+                <!-- Dados serão carregados via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value">#28</div>
+              <div class="stat-label">Sua posição</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">1,245</div>
+              <div class="stat-label">Seus pontos</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">+15</div>
+              <div class="stat-label">Subida esta semana</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculadora -->
+    <section class="container" id="calculadora">
+      <h2 class="titulo-secao">
+        <i class="fas fa-calculator"></i>
+        Calculadora de Streams
+      </h2>
+      
+      <div class="card">
+        <div class="card-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="streamsAtuais">
+                <i class="fas fa-play-circle"></i>
+                Streams Atuais
+              </label>
+              <input 
+                type="number" 
+                id="streamsAtuais" 
+                class="form-control" 
+                value="1000" 
+                min="0"
+                aria-describedby="streamsAtuaisHelp"
+              >
+              <small id="streamsAtuaisHelp" class="texto-secundario">Número atual de streams</small>
+            </div>
+
+            <div class="form-group">
+              <label for="streamsPorDia">
+                <i class="fas fa-calendar-day"></i>
+                Streams por Dia
+              </label>
+              <input 
+                type="number" 
+                id="streamsPorDia" 
+                class="form-control" 
+                value="100" 
+                min="0"
+                aria-describedby="streamsPorDiaHelp"
+              >
+              <small id="streamsPorDiaHelp" class="texto-secundario">Média diária de streams</small>
+            </div>
+
+            <div class="form-group">
+              <label for="diasProjetados">
+                <i class="fas fa-calendar-alt"></i>
+                Dias Projetados
+              </label>
+              <input 
+                type="number" 
+                id="diasProjetados" 
+                class="form-control" 
+                value="30" 
+                min="1" 
+                max="365"
+                aria-describedby="diasProjetadosHelp"
+              >
+              <small id="diasProjetadosHelp" class="texto-secundario">Período para projeção</small>
+            </div>
+          </div>
+
+          <div class="calculadora-botoes">
+            <button class="btn btn-roxo" id="calcularStreams">
+              <i class="fas fa-calculator"></i>
+              Calcular Projeção
+            </button>
+            <button class="btn btn-secundario" id="limparCalculadora">
+              <i class="fas fa-redo"></i>
+              Limpar
+            </button>
+          </div>
+
+          <div class="resultado-calculadora-container" id="resultadoCalculadora" hidden>
+            <h3>Resultado da Projeção</h3>
+            <div class="grid-resultados">
+              <div class="card-resultado">
+                <div class="card-resultado-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="valor-grande" id="resultadoTotal">0</div>
+                <div class="card-descricao">Streams totais projetados</div>
+              </div>
+              <div class="card-resultado">
+                <div class="card-resultado-icon">
+                  <i class="fas fa-calendar-day"></i>
+                </div>
+                <div class="valor-grande" id="resultadoDiario">0</div>
+                <div class="card-descricao">Média diária necessária</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-conteudo">
+        <div class="rodape-info">
+          <div class="rodape-logo">
+            <h3>Gomez Streams Diários</h3>
+            <p class="rodape-descricao">
+              Comunidade dedicada a acompanhar e promover as metas de streams da Selena Gomez. 
+              Junte-se a milhares de fãs e faça parte dessa jornada musical!
+            </p>
+          </div>
+          <div class="redes-sociais">
+            <a href="#" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="Discord">
+              <i class="fab fa-discord"></i>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="rodape-links">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Início</a></li>
+            <li><a href="#estatisticas"><i class="fas fa-chevron-right"></i> Estatísticas</a></li>
+            <li><a href="#votacoes"><i class="fas fa-chevron-right"></i> Votações</a></li>
+            <li><a href="#ranking"><i class="fas fa-chevron-right"></i> Ranking</a></li>
+            <li><a href="#calculadora"><i class="fas fa-chevron-right"></i> Calculadora</a></li>
+          </ul>
+        </div>
+
+        <div class="rodape-links">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Metas Oficiais</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Playlists</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Guias de Streaming</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Regras da Comunidade</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rodape-direitos">
+        <p>© 2026 Gomez Streams Diários. Todos os direitos reservados.</p>
+        <p>Este site é mantido por fãs e não tem afiliação oficial com Selena Gomez ou sua equipe.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Dados do ranking
+    const dadosRanking = [
+      { posicao: 1, nome: "SelenaFan23", pontos: 12500, streams: 12456, trofeus: 5, foto: "SF" },
+      { posicao: 2, nome: "GomezLover", pontos: 11200, streams: 11230, trofeus: 4, foto: "GL" },
+      { posicao: 3, nome: "MusicQueen", pontos: 9800, streams: 9876, trofeus: 4, foto: "MQ" },
+      { posicao: 4, nome: "StreamMaster", pontos: 8450, streams: 8455, trofeus: 3, foto: "SM" },
+      { posicao: 5, nome: "PopStarFan", pontos: 7200, streams: 7210, trofeus: 3, foto: "PS" },
+      { posicao: 6, nome: "LoveOnRepeat", pontos: 6800, streams: 6825, trofeus: 2, foto: "LR" },
+      { posicao: 7, nome: "SG4Ever", pontos: 6250, streams: 6260, trofeus: 2, foto: "SG" },
+      { posicao: 8, nome: "DanceAllDay", pontos: 5800, streams: 5812, trofeus: 2, foto: "DA" },
+      { posicao: 9, nome: "MusicHunter", pontos: 5400, streams: 5410, trofeus: 1, foto: "MH" },
+      { posicao: 10, nome: "StreamTeam", pontos: 5100, streams: 5120, trofeus: 1, foto: "ST" }
+    ];
+
+    // Inicialização quando o DOM estiver carregado
+    document.addEventListener('DOMContentLoaded', function() {
+      inicializarAplicacao();
+    });
+
+    function inicializarAplicacao() {
+      // Inicializar componentes
+      inicializarMenuMobile();
+      inicializarRanking();
+      inicializarCalculadora();
+      inicializarVotacoes();
+      inicializarScrollHeader();
+      inicializarAnimações();
+    }
+
+    // Menu Mobile
+    function inicializarMenuMobile() {
+      const menuMobile = document.getElementById('menuMobile');
+      const menuPrincipal = document.getElementById('menuPrincipal');
+      const menuLinks = menuPrincipal.querySelectorAll('a');
+
+      menuMobile.addEventListener('click', function() {
+        const isExpanded = menuMobile.getAttribute('aria-expanded') === 'true';
+        menuMobile.setAttribute('aria-expanded', !isExpanded);
+        menuPrincipal.classList.toggle('mostrar');
+        menuMobile.innerHTML = isExpanded 
+          ? '<i class="fas fa-bars"></i>' 
+          : '<i class="fas fa-times"></i>';
+      });
+
+      // Fechar menu ao clicar em um link
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuPrincipal.classList.remove('mostrar');
+          menuMobile.setAttribute('aria-expanded', 'false');
+          menuMobile.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Fechar menu ao clicar fora
+      document.addEventListener('click', function(event) {
+        if (!menuPrincipal.contains(event.target) && !menuMobile.contains(event.target)) {
+          menuPrincipal.classList.remove('mostrar');
+          menuMobile.setAttribute('aria-expanded', 'false');
+          menuMobile.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+    }
+
+    // Sistema de Ranking
+    function inicializarRanking() {
+      const tabelaRanking = document.getElementById('tabelaRanking');
+      const filtros = document.querySelectorAll('.ranking-filtros button');
+      
+      // Renderizar ranking inicial
+      renderizarRanking(dadosRanking);
+
+      // Adicionar eventos aos filtros
+      filtros.forEach(filtro => {
+        filtro.addEventListener('click', function() {
+          // Remover classe ativa de todos os botões
+          filtros.forEach(btn => btn.classList.remove('ativo'));
+          // Adicionar classe ativa ao botão clicado
+          this.classList.add('ativo');
+          
+          const filtroSelecionado = this.dataset.filtro;
+          filtrarRanking(filtroSelecionado);
+        });
+      });
+    }
+
+    function renderizarRanking(dados) {
+      const tabelaRanking = document.getElementById('tabelaRanking');
+      tabelaRanking.innerHTML = '';
+
+      dados.forEach(item => {
+        const linha = document.createElement('tr');
+        let classePosicao = '';
+        
+        switch(item.posicao) {
+          case 1: classePosicao = 'posicao-1'; break;
+          case 2: classePosicao = 'posicao-2'; break;
+          case 3: classePosicao = 'posicao-3'; break;
+        }
+
+        linha.innerHTML = `
+          <td>
+            <div class="posicao ${classePosicao}">
+              ${item.posicao}
+            </div>
+          </td>
+          <td>
+            <div class="usuario-info">
+              <div class="usuario-foto" style="background: linear-gradient(135deg, var(--roxo-principal), var(--rosa));">
+                ${item.foto}
+              </div>
+              <div>
+                <div class="usuario-nome">${item.nome}</div>
+                <div class="texto-secundario">Level ${Math.floor(item.pontos / 1000)}</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span class="usuario-pontos">${item.pontos.toLocaleString()}</span>
+          </td>
+          <td>${item.streams.toLocaleString()}</td>
+          <td>
+            <div class="usuario-trofeus">
+              ${'🏆'.repeat(item.trofeus)}
+            </div>
+          </td>
+        `;
+
+        // Adicionar efeito de hover
+        linha.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateX(5px)';
+          this.style.transition = 'transform 0.2s ease';
+        });
+
+        linha.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateX(0)';
+        });
+
+        tabelaRanking.appendChild(linha);
+      });
+    }
+
+    function filtrarRanking(filtro) {
+      let dadosFiltrados = [...dadosRanking];
+      
+      switch(filtro) {
+        case 'semanal':
+          dadosFiltrados = dadosRanking.map(item => ({
+            ...item,
+            pontos: Math.floor(item.pontos * 0.1),
+            streams: Math.floor(item.streams * 0.05)
+          })).sort((a, b) => b.pontos - a.pontos)
+            .map((item, index) => ({...item, posicao: index + 1}));
+          break;
+        case 'mensal':
+          dadosFiltrados = dadosRanking.map(item => ({
+            ...item,
+            pontos: Math.floor(item.pontos * 0.3),
+            streams: Math.floor(item.streams * 0.2)
+          })).sort((a, b) => b.pontos - b.pontos)
+            .map((item, index) => ({...item, posicao: index + 1}));
+          break;
+      }
+
+      renderizarRanking(dadosFiltrados);
+    }
+
+    // Calculadora de Streams
+    function inicializarCalculadora() {
+      const calcularBtn = document.getElementById('calcularStreams');
+      const limparBtn = document.getElementById('limparCalculadora');
+      const resultadoContainer = document.getElementById('resultadoCalculadora');
+
+      calcularBtn.addEventListener('click', function() {
+        // Adicionar efeito de loading
+        this.classList.add('loading');
+        
+        // Simular delay de processamento
+        setTimeout(() => {
+          calcularProjecao();
+          this.classList.remove('loading');
+        }, 800);
+      });
+
+      limparBtn.addEventListener('click', function() {
+        document.getElementById('streamsAtuais').value = '1000';
+        document.getElementById('streamsPorDia').value = '100';
+        document.getElementById('diasProjetados').value = '30';
+        resultadoContainer.hidden = true;
+      });
+
+      // Calcular ao pressionar Enter em qualquer campo
+      const inputs = document.querySelectorAll('#calculadora input');
+      inputs.forEach(input => {
+        input.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            calcularProjecao();
+          }
+        });
+      });
+    }
+
+    function calcularProjecao() {
+      const streamsAtuais = parseInt(document.getElementById('streamsAtuais').value) || 0;
+      const streamsPorDia = parseInt(document.getElementById('streamsPorDia').value) || 0;
+      const diasProjetados = parseInt(document.getElementById('diasProjetados').value) || 0;
+
+      // Validar entrada
+      if (streamsAtuais < 0 || streamsPorDia < 0 || diasProjetados < 1) {
+        mostrarAlerta('Por favor, insira valores válidos.', 'alerta');
+        return;
+      }
+
+      // Calcular projeção
+      const totalProjetado = streamsAtuais + (streamsPorDia * diasProjetados);
+      const mediaDiariaNecessaria = Math.ceil((1000000 - streamsAtuais) / 30); // Para atingir 1M em 30 dias
+
+      // Atualizar resultados
+      document.getElementById('resultadoTotal').textContent = totalProjetado.toLocaleString();
+      document.getElementById('resultadoDiario').textContent = mediaDiariaNecessaria.toLocaleString();
+
+      // Mostrar resultados com animação
+      const resultadoContainer = document.getElementById('resultadoCalculadora');
+      resultadoContainer.hidden = false;
+      resultadoContainer.style.opacity = '0';
+      resultadoContainer.style.transform = 'translateY(20px)';
+      
+      setTimeout(() => {
+        resultadoContainer.style.transition = 'all 0.5s ease';
+        resultadoContainer.style.opacity = '1';
+        resultadoContainer.style.transform = 'translateY(0)';
+      }, 10);
+
+      // Adicionar animação de confete se a meta for alcançada
+      if (totalProjetado >= 1000000) {
+        mostrarAlerta('🎉 Parabéns! Sua projeção ultrapassa 1 milhão de streams!', 'sucesso');
+      }
+    }
+
+    // Sistema de Votações
+    function inicializarVotacoes() {
+      const opcoesVoto = document.querySelectorAll('.opcao-voto');
+      let votoAtual = null;
+
+      opcoesVoto.forEach(opcao => {
+        opcao.addEventListener('click', function() {
+          // Se já votou, mostrar mensagem
+          const jaVotou = document.querySelector('.alerta').textContent.includes('já votou');
+          if (jaVotou) {
+            mostrarAlerta('Você já votou esta semana. Aguarde a próxima votação!', 'alerta');
+            return;
+          }
+
+          // Remover seleção anterior
+          opcoesVoto.forEach(o => o.classList.remove('selecionada'));
+          
+          // Adicionar seleção atual
+          this.classList.add('selecionada');
+          votoAtual = this.dataset.voto;
+
+          // Simular envio do voto
+          setTimeout(() => {
+            mostrarAlerta('✅ Seu voto foi registrado com sucesso!', 'sucesso');
+            atualizarEstatisticasVotacao(votoAtual);
+          }, 500);
+        });
+      });
+    }
+
+    function atualizarEstatisticasVotacao(votoSelecionado) {
+      // Simular atualização das estatísticas
+      const barras = document.querySelectorAll('.barra-votos-preenchida');
+      const textos = document.querySelectorAll('.opcao-stats span');
+      
+      // Incrementar a opção votada
+      if (votoSelecionado === '1') {
+        barras[0].style.width = '45%';
+        textos[0].textContent = '45%';
+        textos[1].textContent = '1,345 votos';
+      } else if (votoSelecionado === '2') {
+        barras[1].style.width = '36%';
+        textos[2].textContent = '36%';
+        textos[3].textContent = '1,085 votos';
+      } else {
+        barras[2].style.width = '24%';
+        textos[4].textContent = '24%';
+        textos[5].textContent = '730 votos';
+      }
+
+      // Atualizar total de votos
+      const alerta = document.querySelector('.alerta');
+      alerta.innerHTML = '<i class="fas fa-check-circle"></i><span>Você já votou nesta semana. Próxima votação em 2 dias.</span>';
+      alerta.className = 'sucesso';
+    }
+
+    // Header com efeito de scroll
+    function inicializarScrollHeader() {
+      const header = document.getElementById('cabecalho');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+
+    // Animações
+    function inicializarAnimações() {
+      // Animar elementos ao rolar
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      }, observerOptions);
+
+      // Observar todas as seções
+      document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+      });
+
+      // Animar números dos cards
+      const numeros = document.querySelectorAll('.valor-grande');
+      numeros.forEach(numero => {
+        if (numero.textContent.match(/^\d/)) {
+          animarNumero(numero);
+        }
+      });
+    }
+
+    function animarNumero(elemento) {
+      const valorFinal = parseInt(elemento.textContent.replace(/,/g, ''));
+      const duracao = 2000;
+      const incremento = valorFinal / (duracao / 16);
+      let valorAtual = 0;
+
+      const timer = setInterval(() => {
+        valorAtual += incremento;
+        if (valorAtual >= valorFinal) {
+          elemento.textContent = valorFinal.toLocaleString();
+          clearInterval(timer);
+        } else {
+          elemento.textContent = Math.floor(valorAtual).toLocaleString();
+        }
+      }, 16);
+    }
+
+    // Sistema de Alertas
+    function mostrarAlerta(mensagem, tipo) {
+      // Remover alertas anteriores
+      const alertasAntigos = document.querySelectorAll('.alerta-temporario');
+      alertasAntigos.forEach(alerta => alerta.remove());
+
+      // Criar novo alerta
+      const alerta = document.createElement('div');
+      alerta.className = `${tipo} alerta-temporario`;
+      alerta.innerHTML = `
+        <i class="fas fa-${tipo === 'sucesso' ? 'check-circle' : 'exclamation-triangle'}"></i>
+        <span>${mensagem}</span>
+      `;
+
+      // Estilos para posicionamento fixo
+      alerta.style.position = 'fixed';
+      alerta.style.top = '20px';
+      alerta.style.right = '20px';
+      alerta.style.left = '20px';
+      alerta.style.maxWidth = '400px';
+      alerta.style.margin = '0 auto';
+      alerta.style.zIndex = '1000';
+      alerta.style.boxShadow = 'var(--sombra-forte)';
+
+      // Adicionar ao body
+      document.body.appendChild(alerta);
+
+      // Animar entrada
+      setTimeout(() => {
+        alerta.style.transition = 'all 0.3s ease';
+        alerta.style.transform = 'translateY(0)';
+        alerta.style.opacity = '1';
+      }, 10);
+
+      // Remover após 5 segundos
+      setTimeout(() => {
+        alerta.style.transform = 'translateY(-20px)';
+        alerta.style.opacity = '0';
+        setTimeout(() => alerta.remove(), 300);
+      }, 5000);
+    }
+
+    // Atualizar dados em tempo real (simulado)
+    function simularAtualizacoes() {
+      // Atualizar total de streams periodicamente
+      setInterval(() => {
+        const totalStreams = document.getElementById('totalStreams');
+        const valorAtual = parseInt(totalStreams.textContent.replace(/,/g, ''));
+        const novoValor = valorAtual + Math.floor(Math.random() * 1000);
+        totalStreams.textContent = novoValor.toLocaleString();
+      }, 10000);
+
+      // Alternar animação de pulse no badge de pontos
+      setInterval(() => {
+        const badge = document.querySelector('.badge-pontos');
+        badge.classList.toggle('animate-pulse');
+      }, 3000);
+    }
+
+    // Iniciar simulações
+    simularAtualizacoes();
+
+    // Suporte a teclado para acessibilidade
+    document.addEventListener('keydown', function(e) {
+      // Fechar menu com Escape
+      if (e.key === 'Escape') {
+        const menu = document.getElementById('menuPrincipal');
+        if (menu.classList.contains('mostrar')) {
+          menu.classList.remove('mostrar');
+          document.getElementById('menuMobile').setAttribute('aria-expanded', 'false');
+          document.getElementById('menuMobile').innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
