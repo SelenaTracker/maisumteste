@@ -1869,6 +1869,65 @@
         }
       }
     });
-  </script>
+  </script> 
+
+  <script>
+// Sistema de carregamento de dados
+async function carregarDados() {
+  try {
+    const response = await fetch(DATA_URL + '?t=' + new Date().getTime());
+    
+    if (!response.ok) throw new Error('Erro ao carregar dados');
+    
+    const dados = await response.json();
+    
+    // Atualizar interface com dados reais
+    atualizarInterface(dados);
+    
+    console.log('✅ Dados carregados:', dados.ultima_atualizacao);
+    
+  } catch (error) {
+    console.warn('⚠️ Usando dados locais:', error.message);
+    
+    // Usar dados padrão
+    atualizarInterface(DEFAULT_DATA);
+    
+    // Mostrar aviso discreto
+    mostrarAviso('Dados podem estar desatualizados. Próxima atualização automática às 20:00.');
+  }
+}
+
+function atualizarInterface(dados) {
+  // Aqui virá a lógica para atualizar tabelas, cards, etc.
+  // Vou fornecer na Parte 4
+  console.log('Interface atualizada com:', dados);
+}
+
+function mostrarAviso(mensagem) {
+  // Aviso não intrusivo
+  const aviso = document.createElement('div');
+  aviso.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #f59e0b;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 1000;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  `;
+  aviso.textContent = mensagem;
+  document.body.appendChild(avisso);
+  
+  setTimeout(() => aviso.remove(), 5000);
+}
+
+// Iniciar carregamento quando página carregar
+document.addEventListener('DOMContentLoaded', carregarDados);
+</script>
+  
 </body>
 </html>
